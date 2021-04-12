@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require_relative './lib/cron_parser'
+
+expression = ARGV.shift
+
+raise "No expression passed\nUsage: ./parser '* * * * * * command'" unless expression && expression != ""
+
+parser = CronParser.new(expression)
+
+puts parser.format
